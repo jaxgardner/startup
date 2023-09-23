@@ -9,3 +9,12 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 - Ability to store completed activites so you can remember them when feeling bored again
 - Chat with other community members to learn how they spend their time
 - Specific ideas for specific categories such as service, dating, going outside, or new hobbies
+
+## Technology Use
+### HTML
+### CSS
+### Javascript
+### Web services
+### Authentication
+### Database Data
+### Websocket Data
