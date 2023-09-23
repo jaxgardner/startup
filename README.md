@@ -19,6 +19,8 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 - Used to make the website interactive and easy to use
 - Used to connect to backend services 
 ### Web services
+- Will use a web service to generate the different ideas or hobbies to do
+- May use a web service as well to generate instructions/images for each activity making the website even more useful
 ### Authentication
 - Allow the user to login with an username/password
 - By having users data can be saved and used whenver logging in making for a more personalized experience
@@ -27,3 +29,6 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 - Store the past activites completed so users can always refer back to the ones they like
 - Data will be showed in the list page of the website
 ### Websocket Data
+- There will be a realtime chat were current users can chat with others about ways to pass the time
+- This could include suggestions or instructions from others
+- Websocket data will be the message and username of others
