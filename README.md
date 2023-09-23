@@ -11,6 +11,10 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 - Specific ideas for specific categories such as service, dating, going outside, or new hobbies
 - Secured through https
 
+## Design
+
+![Section 1](https://github.com/jaxgardner/startup/assets/140025555/e3e9e698-f322-45ac-b7bf-0af121c4f7e2)
+
 ## Technology Use
 ### HTML
 - Used to design the basic layout and structure of the website
