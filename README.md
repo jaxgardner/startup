@@ -12,8 +12,12 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 - Secured through https
 
 ## Design
-
+Section 1
 ![Section 1](https://github.com/jaxgardner/startup/assets/140025555/e3e9e698-f322-45ac-b7bf-0af121c4f7e2)
+
+Section 2
+![Section 1 (1)](https://github.com/jaxgardner/startup/assets/140025555/e7a13e3b-d4ff-4163-8e5d-901c6d4db6a1)
+
 
 ## Technology Use
 ### HTML
