@@ -13,17 +13,25 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 ## Technology Use
 ### HTML
 - Used to design the basic layout and structure of the website
+- Provides good spacing and allows for good structure on any screen
 ### CSS
 - Used to style the website making for an good looking UI
+- Used for a good orange/white color theme
+- Will look simple but sleek in design
 ### Javascript
 - Used to make the website interactive and easy to use
-- Used to connect to backend services 
+- Used to connect to backend services
+- Used to display the different activites
+- Can show lists of activities and allow users to tap through them
+- Generates new activities
 ### Web services
 - Will use a web service to generate the different ideas or hobbies to do
 - May use a web service as well to generate instructions/images for each activity making the website even more useful
 ### Authentication
 - Allow the user to login with an username/password
+- Stored on database
 - By having users data can be saved and used whenver logging in making for a more personalized experience
+- Cannot save activities unless logged in
 ### Database Data
 - Store the username and password of the users
 - Store the past activites completed so users can always refer back to the ones they like
