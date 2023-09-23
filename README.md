@@ -12,9 +12,18 @@ Have you ever been sitting around doing nothing? How does that feel? Boring? We 
 
 ## Technology Use
 ### HTML
+- Used to design the basic layout and structure of the website
 ### CSS
+- Used to style the website making for an good looking UI
 ### Javascript
+- Used to make the website interactive and easy to use
+- Used to connect to backend services 
 ### Web services
 ### Authentication
+- Allow the user to login with an username/password
+- By having users data can be saved and used whenver logging in making for a more personalized experience
 ### Database Data
+- Store the username and password of the users
+- Store the past activites completed so users can always refer back to the ones they like
+- Data will be showed in the list page of the website
 ### Websocket Data
