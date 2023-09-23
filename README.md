@@ -18,6 +18,9 @@ Section 1
 Section 2
 ![Section 1 (1)](https://github.com/jaxgardner/startup/assets/140025555/e7a13e3b-d4ff-4163-8e5d-901c6d4db6a1)
 
+Section 3
+![Section 1 (2)](https://github.com/jaxgardner/startup/assets/140025555/c645796d-28bc-48df-b951-b7c0743a5ec2)
+
 
 ## Technology Use
 ### HTML
