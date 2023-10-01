@@ -55,3 +55,11 @@ Section 4
 - There will be a realtime chat were current users can chat with others about ways to pass the time
 - This could include suggestions or instructions from others
 - Websocket data will be the message and username of others
+
+
+# Notes
+## HTML Production
+- In this release I added the html structure for all of the possible pages of the application.
+- There may be future pages added but these are the starters.
+- I added placeholders for each of the technologies in the form of pictures. In the future they will be replaced with the actual code renditions.
+- It includes a login page, Home page with the main tapping function to get a new activity, a chat page with placeholders for the chat, and a saved page that shows saved activities in order to remember them. There is also a menu page at the top with links to each of the pages. At the bottom is the login screen.
