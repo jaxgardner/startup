@@ -96,7 +96,46 @@ header {
 
 
 main {
-    flex: 3;
+    display: flex;
+    flex-direction: column;
     background-color: #F17829;
-    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.maintitle {
+    flex: 1;
+    font-size: 20px;
+}
+
+
+
+.activitybutton button {
+    background-color: #19598E;
+    width: 250px;
+    height: 250px;
+    font-family: inherit;
+    font-size: 3rem;
+    color: white;
+    border-radius: 20px;
+    border: 2px solid white
+    
+}
+
+.donebutton {
+    flex: 1;
+}
+
+.donebutton button {
+    background-color: white;
+    color: #362F2F;
+    width: 225px;
+    height: 75px;
+    margin: 15px;
+    margin-top: 25px;
+    font-family: inherit;
+    font-size: 2rem;
+    border: none;
+    border-radius: 20px;
 }
