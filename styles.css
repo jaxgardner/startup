@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+body {
+    font-family: 'Passion One', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    background-color: #F17829;
+}
+
+header {
+    background-color: #D36618;
+    position: relative;
+}
+
+main {
+   background-color: #F17829; 
+}
