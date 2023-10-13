@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 
 body {
+    flex: 1;
     font-family: 'Passion One', sans-serif;
     padding: 0px;
     margin: 0px;
@@ -8,10 +9,29 @@ body {
 }
 
 header {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding: 10px;
+    padding-left: 25px;
     background-color: #D36618;
     position: relative;
+    height: 100px;
+    align-items: center;
 }
 
 main {
-   background-color: #F17829; 
+    flex: 3;
+    background-color: #F17829;
+    text-align: center; 
+}
+
+.title h1 {
+    margin: 0;
+    margin-top: 5;
+    font-size: 45px;
+}
+
+.title h2 {
+    margin: 0;
 }
