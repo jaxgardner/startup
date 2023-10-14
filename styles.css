@@ -191,6 +191,43 @@ header {
 }
 
 
+#login {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.textinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textinput input{
+    width: 300px;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+    padding: 5px;
+    padding-left: 15px;
+    font: inherit;
+    color: #362F2F;
+    margin: 10px
+}
+
+.textinput button {
+    background-color: #19598E;
+    font: inherit;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 100%;
+    padding: 5px;
+}
+
+
 
 #footer {
     margin-top: auto;
@@ -207,7 +244,7 @@ header {
 }
 
 .footertext a {
-    margin: 10px;
+    margin-left: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -228,8 +265,9 @@ header {
     padding: 20px;
 }
 
+
 .container input {
-    width: 200px;
+    width: 300px;
     height: 100%;
     border-radius: 20px;
     border: 1px solid #362F2F;
@@ -269,4 +307,13 @@ header {
 
     }
 }
+
+
+.saved {
+    height: 100%;
+    width: 90%;
+    border: 2px solid #362F2F;
+    margin-bottom: 10px;
+}
+
 
