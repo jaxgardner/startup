@@ -126,7 +126,6 @@ header {
 }
 
 
-
 #main {
     display: flex;
     flex-direction: column;
@@ -140,6 +139,7 @@ header {
 
 .maintitle {
     font-size: 20px;
+    text-align: center;
 }
 
 .activitybutton button {
@@ -299,6 +299,10 @@ header {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .container input {
+        width: 175px
     }
 
     .container button {
