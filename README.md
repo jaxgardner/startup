@@ -63,3 +63,15 @@ Section 4
 - There may be future pages added but these are the starters.
 - I added placeholders for each of the technologies in the form of pictures. In the future they will be replaced with the actual code renditions.
 - It includes a login page, Home page with the main tapping function to get a new activity, a chat page with placeholders for the chat, and a saved page that shows saved activities in order to remember them. There is also a menu page at the top with links to each of the pages. At the bottom is the login screen.
+- 
+
+## CSS Production
+- I added styling for all the pages, it's an orange/blue based theme
+- The login, home, chat, and saved screen all have the appropiate styling.
+- The pages are all responsive to styling except for when really small then it stops working.
+- It needs work for when adding cards from the database right now there is just a space for where they will go.
+- Added a Google font from their webservice to give it a more complete look
+- The footer is at the bottom of every page, it is not a sticky footer.
+- The header includes the navigation menu for the website.
+- The buttons resize according to the size. I would like the main one to be slightly more responsive because it only has 2 sizes, but in the future.
+
