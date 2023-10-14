@@ -45,6 +45,7 @@ header {
     margin: 0;
     margin-top: 5;
     font-size: 60px;
+    text-align: center;
 }
 
 .title h2 {
@@ -209,17 +210,63 @@ header {
     margin: 10px;
 }
 
-.textinput {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    width: 100%;
-    justify-content: flex-end;
+@media only screen and (max-width: 768px) {
+    .footertext {justify-content: center;}
 }
 
-.textinput input{
-    width: 75%;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px ;
+    padding: 20px;
+}
+
+.container input {
+    width: 200px;
+    height: 100%;
     border-radius: 20px;
-    align-self: self-end;
+    border: 1px solid #362F2F;
+    padding: 5px;
+    padding-left: 15px;
+    font: inherit;
+    color: #362F2F;
+}
+
+.container button {
+    background-color: #19598E;
+    font: inherit;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 60px;
+    height: 100%;
+    padding: 5px;
+}
+
+@media screen and (max-width:768px){
+    .container {
+        padding: 10px;
+        align-items: center;
+    }
+    
+    .container form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container button {
+        margin: 0;
+        margin-top: 5px;
+
+    }
 }
 
