@@ -17,11 +17,11 @@
                 <h1>Login here</h1>
             </div>
             <div class="login">
-                <form method="get" action="index.html">
+                <form method="get" action="./index.html">
                     <div class="textinput">
-                        <input type="text" id="username" placeholder="Username..." />
+                        <input type="text" name="username" value="" placeholder="Username..." />
                         <input type="password" id="password" placeholder="Password..." />
-                        <button type="submit">Login</button>
+                        <input type="submit" value="Login" onclick="login(this.form)"/>
                     </div>
                 </form>
             </div>
@@ -33,5 +33,6 @@
                 <a href="https://github.com/jaxgardner/startup">Github</a>
             </div>
         </footer>
+        <script src="javascript/login.mjs"></script>
     </body>
 </html>

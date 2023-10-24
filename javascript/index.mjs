@@ -1,3 +1,5 @@
+
+
 function getRandomActivity() {
     const randomIndex = Math.floor(Math.random() * activities.length);
     
@@ -10,6 +12,8 @@ function getActivity() {
     button.innerText = randomActivity;
     const donebutton = document.getElementById("bottombutton");
     donebutton.style.display = "inline";
+    const savebutton = document.getElementById("savebutton");
+    savebutton.style.display = "inline";
 }
 
 function closeActivity() {
@@ -17,7 +21,20 @@ function closeActivity() {
     button.innerText = "Tap here";
     const donebutton = document.getElementById("bottombutton");
     donebutton.style.display = "none";
+    const savebutton = document.getElementById("savebutton");
+    savebutton.style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the div element
+    const user = document.getElementById("userplace");
+
+    // Change the text of the div element immediately
+    user.textContent = localStorage.getItem("username");
+});
+
+
+
 
 const activities = [
     "Read a book",
