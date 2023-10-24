@@ -5,9 +5,9 @@ Today I learned a little about how to use Github from vscode.
 I learned about merge conflicts as well as how to resolve them.
 I want to further my knowledge in using Git from the terminal.
 
-### In the following code, what does the link element do?
+## In the following code, what does the link element do?
   The <link> tag defines the relationship between the current document and an external resource. The <link> tag is most often used to link to external style sheets or to add a favicon to your website. The <link> element is an empty element, it contains attributes only.
-### In the following code,  what does a div tag do?
+## In the following code,  what does a div tag do?
   The <div> tag defines a division or a section in an HTML document. The <div> tag is used as a container for HTML elements - which is then styled with CSS or manipulated with JavaScript. The <div> tag is easily styled by using the class or id attribute.
 ### In the following code, what is the difference between the #title and .grid selector?
 	.selectors are for selecting the class of the html element. # are for selecting the id of the Html element. 
