@@ -31,10 +31,10 @@ function myFunction() {
 ## How would you display an image with a hyperlink in HTML?
   <a href="https://www.example.com"> <img src="image.jpg" alt="Description of the image"> </a>
 ## In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
-Content: This is the innermost layer of the box and contains the actual content of the element, such as text or images. The content area is defined by the width and height properties.
-Padding: The padding is the space between the content and the border. It can be controlled using the padding property. Padding is important for creating space around the content.
-Border: The border is a visible or invisible boundary that surrounds the padding and content. It can be styled using properties like border-width, border-style, and border-color. The border separates the content from the margin.
-Margin: The margin is the outermost layer of the box model and creates space around the border. It can be controlled using the margin property. Margins are used to control the spacing between elements on the page.
+- Content: This is the innermost layer of the box and contains the actual content of the element, such as text or images. The content area is defined by the width and height properties.
+- Padding: The padding is the space between the content and the border. It can be controlled using the padding property. Padding is important for creating space around the content.
+- Border: The border is a visible or invisible boundary that surrounds the padding and content. It can be styled using properties like border-width, border-style, and border-color. The border separates the content from the margin.
+- Margin: The margin is the outermost layer of the box model and creates space around the border. It can be controlled using the margin property. Margins are used to control the spacing between elements on the page.
 
 ## Given the following HTML, what CSS would you use to set the text "troubl" to green and leave the "double" text unaffected?
 ## What will the following code output when executed using a for loop and console.log?
