@@ -332,11 +332,27 @@ header {
 }
 
 
-.saved {
+.grid-container {
+    display: grid;
     height: 100%;
-    width: 90%;
+    width: 80%;
     border: 2px solid #362F2F;
     margin-bottom: 10px;
+    padding: 10px;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-auto-rows: 25%; 
+    grid-template-columns: unset; 
+    grid-template-rows: unset;
+    overflow: scroll;
+    overflow-x: hidden;
+    row-gap: 20px;
+}
+
+.saved-item {
+    background-color: white;
+    height: 100px;
+    border-radius: 20px;
 }
 
 
