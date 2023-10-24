@@ -61,11 +61,11 @@ Const myObject = {
 ## Is it possible to add new properties to javascript objects?
   Yes, myObject.newProperty = ‘new value’;
 ## If you want to include JavaScript on an HTML page, which tag do you use?
-  <script>
+  <script></script>
 ## Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?  
-Which of the following correctly describes JSON?
-Javascript Object notation:
--based on key-value pairs
+## Which of the following correctly describes JSON?
+	-Javascript Object notation:
+	-based on key-value pairs
 ## What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
 	chmod: Changes file permissions. You can use it to modify the read, write, and execute permissions for files and directories.
 	pwd: Prints the current working directory. It shows you the full path to your current location in the file system.
@@ -84,22 +84,22 @@ Javascript Object notation:
 
 
 ## Which of the following console command creates a remote shell session?
-ssh -i myuser@192.168.1.100
-Which of the following is true when the -la parameter is specified for the ls console command?
-It lists all the files in the directory including the hidden ones.
-L = long format
-A = all
-Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
-TLD is the rightmost part of the domain
-RD is the second level domain
-SD is the next to the root domain
-Is a web certificate is necessary to use HTTPS.
-Yes, specifically an ssl/tls certificate. You must obtain it from a Certificate authority. 
-Can a DNS A record can point to an IP address or another A record.
+	ssh -i myuser@192.168.1.100
+## Which of the following is true when the -la parameter is specified for the ls console command?
+	It lists all the files in the directory including the hidden ones.
+	L = long format
+	A = all
+## Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+	TLD is the rightmost part of the domain
+	RD is the second level domain
+	SD is the next to the root domain
+## Is a web certificate is necessary to use HTTPS.
+	Yes, specifically an ssl/tls certificate. You must obtain it from a Certificate authority. 
+## Can a DNS A record can point to an IP address or another A record.
 	It can’t point directly to another A record. It is designed to point to an IPv4 record. You can set it up by having both A records point to the same IPv4.
-Port 443, 80, 22 is reserved for which protocol?
+## Port 443, 80, 22 is reserved for which protocol?
 	443: Reserved for HTTPS
 	80: Reserved for HTTP
 	22: Reserved for SSH
-What will the following code using Promises output when executed?
+## What will the following code using Promises output when executed?
 		A promise states that it will be completed eventually. Here is an example:
