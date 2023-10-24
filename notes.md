@@ -62,28 +62,28 @@ Const myObject = {
   Yes, myObject.newProperty = ‘new value’;
 ## If you want to include JavaScript on an HTML page, which tag do you use?
   <script>
-## Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected? 
-### Which of the following correctly describes JSON?
+## Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?  
+Which of the following correctly describes JSON?
 Javascript Object notation:
 -based on key-value pairs
 ## What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
-chmod: Changes file permissions. You can use it to modify the read, write, and execute permissions for files and directories.
-pwd: Prints the current working directory. It shows you the full path to your current location in the file system.
-cd: Changes the current directory. You can use it to navigate the file system and move to different directories.
-ls: Lists the contents of a directory. It displays files and subdirectories in the current directory.
-vim: Opens the Vim text editor. Vim is a powerful, terminal-based text editor used for editing files in the console.
-nano: Opens the Nano text editor. Nano is a simple and user-friendly terminal-based text editor.
-mkdir: Creates a new directory. You can use it to make new folders in your file system.
-mv: Moves or renames files and directories. It's used to change the name or location of a file or directory.
-rm: Removes files and directories. It can delete files and directories, so use it with caution.
-man: Displays the manual or documentation for a command. You can look up how to use a command and its options.
-ssh: Initiates a secure shell connection to a remote server. It's used for remote command-line access.
-ps: Shows information about currently running processes. You can use it to view a list of active processes.
-wget: Downloads files from the internet. It's a command-line utility for retrieving data from web servers.
-sudo: Stands for "superuser do." It allows you to execute commands with administrative privileges.
+	chmod: Changes file permissions. You can use it to modify the read, write, and execute permissions for files and directories.
+	pwd: Prints the current working directory. It shows you the full path to your current location in the file system.
+	cd: Changes the current directory. You can use it to navigate the file system and move to different directories.
+	ls: Lists the contents of a directory. It displays files and subdirectories in the current directory.
+	vim: Opens the Vim text editor. Vim is a powerful, terminal-based text editor used for editing files in the console.
+	nano: Opens the Nano text editor. Nano is a simple and user-friendly terminal-based text editor.
+	mkdir: Creates a new directory. You can use it to make new folders in your file system.
+	mv: Moves or renames files and directories. It's used to change the name or location of a file or directory.
+	rm: Removes files and directories. It can delete files and directories, so use it with caution.
+	man: Displays the manual or documentation for a command. You can look up how to use a command and its options.
+	ssh: Initiates a secure shell connection to a remote server. It's used for remote command-line access.
+	ps: Shows information about currently running processes. You can use it to view a list of active processes.
+	wget: Downloads files from the internet. It's a command-line utility for retrieving data from web servers.
+	sudo: Stands for "superuser do." It allows you to execute commands with administrative privileges.
 
 
-Which of the following console command creates a remote shell session?
+## Which of the following console command creates a remote shell session?
 ssh -i myuser@192.168.1.100
 Which of the following is true when the -la parameter is specified for the ls console command?
 It lists all the files in the directory including the hidden ones.
