@@ -33,6 +33,26 @@ document.addEventListener("DOMContentLoaded", function() {
     user.textContent = localStorage.getItem("username");
 });
 
+function saveActivity() {
+    const currentActivity = document.getElementById("mainbutton").innerText;
+
+    
+        const activities = localStorage.getItem("SavedActivity");
+
+        const myObject = JSON.parse(activities || '{"activities": []}');
+
+        myObject.activities.push(currentActivity);
+
+        const updatedData = JSON.stringify(myObject);
+
+        console.log(updatedData)
+
+        localStorage.setItem('SavedActivity', updatedData);
+
+
+    closeActivity();
+}
+
 
 
 

@@ -100,7 +100,7 @@ header {
     margin: 0;
     text-align: end;
     vertical-align: middle;
-    width: 10%
+    width: 13%
 }
 
 .user h2 {
@@ -149,7 +149,7 @@ header {
     width: 250px;
     height: 250px;
     font-family: inherit;
-    font-size: 3rem;
+    font-size: 2.7rem;
     color: white;
     border-radius: 20px;
     border: 2px solid white
@@ -157,7 +157,7 @@ header {
 }
 
 .activitybutton button:hover {
-    font-size: 3.1rem;
+    font-size: 2.8rem;
 }
 
 .donebutton {
@@ -355,10 +355,13 @@ header {
     background-color: white;
     height: 100px;
     width: 100%;
+    font: inherit;
+    font-size: 1.7rem;
     border-radius: 20px;
     text-align: center;
     line-height: 100px;
-    font-size: 3rem;
+    color: #362F2F;
+    
 }
 
 
