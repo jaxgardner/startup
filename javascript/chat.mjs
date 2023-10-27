@@ -8,6 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById("addInputMessage").addEventListener('click', function(event){
     event.preventDefault;
+
+    addMessage();
+})
+
+document.getElementById('inputMessage').addEventListener('keydown', function(event){
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        addMessage();
+    }
+})
+    
+function addMessage() {
     const text = document.getElementById('inputMessage').value;
 
     const newMessage = document.createElement('div');
@@ -20,5 +32,6 @@ document.getElementById("addInputMessage").addEventListener('click', function(ev
 
     const button = document.getElementById("inputMessage");
     button.value = '';
-})
+}
+    
 
