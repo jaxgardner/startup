@@ -75,3 +75,11 @@ Section 4
 - The header includes the navigation menu for the website.
 - The buttons resize according to the size. I would like the main one to be slightly more responsive because it only has 2 sizes, but in the future.
 
+## JS Production
+- I added JS for the button to change activities when it's clicked.
+- I added JS to save the activity when the button is clicked.
+- It can also clear the button when the done button is pressed.
+- In the chat page future support for web socket support was added. You can add fake messages.
+- In the Saved page it displays saved activities from local storage.
+- The login page submits your username to the rest of the website allowing for future support of login abilities.
+
