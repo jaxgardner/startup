@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
         parent.appendChild(div);
     })
 
-
-    
 });
 
 document.addEventListener("DOMContentLoaded", function() {
