@@ -352,16 +352,42 @@ header {
 }
 
 .saved-item {
-    background-color: white;
-    height: 100px;
+    display: flex;
+    flex: 1;
+    background-color: #19598E;
+    height: 100%;
     width: 100%;
     font: inherit;
-    font-size: 1.7rem;
+    font-size: 4rem;
     border-radius: 20px;
-    text-align: center;
-    line-height: 100px;
+    justify-content: space-between;
+    align-items:  center;
+    color: white;
+    padding-left: 30px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.remove {
+    background-color: white;
+    font: inherit;
     color: #362F2F;
-    
+    border: none;
+    border-radius: 20px;
+    width: 85px;
+    height: 40%;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.remove:hover {
+    opacity: .9;
+}
+
+@media only screen and (max-width: 768px) {
+    .saved-item {font-size: 2rem;}
+
+    .remove {font-size: .9rem; width: 60px;}
 }
 
 #messages {

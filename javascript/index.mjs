@@ -56,6 +56,7 @@ function saveActivity() {
 
 
 
+
 const activities = [
     "Read a book",
     "Watch a movie",
