@@ -49,6 +49,23 @@ header {
     font-size: 60px;
 }
 
+.logintitle {
+    font-size: 2rem;
+    
+}
+
+.logintitle h1 {
+    margin: 0;
+    margin-top: 5;
+    justify-self: flex-end;
+    vertical-align: bottom;
+}
+
+.quote {
+    font-size: 1.5rem;
+    justify-self: flex-end;
+    margin-top: 40px;
+}
 
 .menu {
     display: flex;
@@ -129,8 +146,6 @@ header {
 #main {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
     background-color: #F17829;
     align-items: center;
     justify-content: center;

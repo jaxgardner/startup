@@ -6,6 +6,7 @@ app.post('/signup', (req, res, next) => {
     res.send({username: 'Jaxrocs'});
 })
 
+
 // Login returning user
 app.post('/login', (req, res) => {})
 
