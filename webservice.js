@@ -1,34 +1,41 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-// Create new user
-app.post('/signup', (req, res, next) => {
-    res.send({username: 'Jaxrocs'});
-})
+app.use(bodyParser.json());
 
+let savedActivities = [{id: 1, name: "run"}, {id: 2, name: "cook"}, {id: 3, name: "dance"}];
 
-// Login returning user
-app.post('/login', (req, res) => {})
+// Endpoint to save an activity
+app.post('/save-activity', (req, res) => {
+  const activity = req.body.activity; // Assuming 'activity' is sent in the request body
+  if (activity) {
+    // Generate a unique ID for the activity (you can use a library like 'uuid')
+    const activityId = generateUniqueId();
+    savedActivities.push({ id: activityId, name: activity });
+    res.json({ success: true, message: 'Activity saved successfully' });
+  } else {
+    res.status(400).json({ success: false, message: 'Activity not provided' });
+  }
+});
 
+// Endpoint to retrieve saved activities
+app.get('/get-saved-activities', (req, res) => {
+  res.json(savedActivities);
+});
 
-// Get current user profile
-app.get('/user', (req, res) => {})
+// Endpoint to remove a saved activity
+app.delete('/remove-activity/:activityId', (req, res) => {
+  const activityId = req.params.activityId;
+  const index = savedActivities.findIndex((activity) => activity.id === activityId);
 
-
-// Get saved activities
-app.get('/saved', (req, res) => {})
-
-
-// Get a quote from webservice
-app.get('/quote', (req, res) => {})
-
-
-// Update user profile info
-app.patch('/user/:userId', (req, res) => {})
-
-
-// Delete saved activity
-app.delete('/saved/:activityId', (req, res) => {})
+  if (index !== -1) {
+    savedActivities.splice(index, 1);
+    res.json({ success: true, message: 'Activity removed successfully' });
+  } else {
+    res.status(404).json({ success: false, message: 'Activity not found' });
+  }
+});
 
 
 // Delete user account

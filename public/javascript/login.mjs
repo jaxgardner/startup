@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.quote').textContent = JSON.stringify(
                 "-" + response.content,
                 null,
-                "-Today is a great day to do something"
-                
+                "-Today is a great day to do something"    
             )
         })
 })
