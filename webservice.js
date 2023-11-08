@@ -4,14 +4,24 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-let savedActivities = [{id: 1, name: "run"}, {id: 2, name: "cook"}, {id: 3, name: "dance"}];
+let savedActivities = [{id: "abc123", name: "run"}, {id: "2", name: "cook"}, {id: 3, name: "dance"}];
+
+function generateNumericId(length) {
+  let result = '';
+  const characters = '0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 
 // Endpoint to save an activity
-app.post('/save-activity', (req, res) => {
-  const activity = req.body.activity; // Assuming 'activity' is sent in the request body
+app.post('/save-activity/:activity', (req, res) => {
+  const activity = req.params.activity; 
   if (activity) {
-    // Generate a unique ID for the activity (you can use a library like 'uuid')
-    const activityId = generateUniqueId();
+    const activityId = generateNumericId(4);
     savedActivities.push({ id: activityId, name: activity });
     res.json({ success: true, message: 'Activity saved successfully' });
   } else {

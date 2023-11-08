@@ -1,29 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
-    const jsonString = localStorage.getItem("SavedActivity");
-    const data = JSON.parse(jsonString);
-    const activityList = data.activities;
-    let uniqueId = 1;
+    fetch('http://localhost:8080/get-saved-activities')
+        .then((response)=> {
+            if(!response.ok){
+                throw new Error("Network not working.");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            let activityList = data;
+            activityList.forEach((activity) => {
+                const div = document.createElement('div');
+                const button = document.createElement('button');
+                button.className = 'remove';
+                button.innerText = 'Remove';
+                const parent = document.getElementById('activitylist');
+                const span = document.createElement('span');
+                span.className='item-text'
+                span.innerText=activity.name;
+                
+                div.className = "saved-item";
+                div.id = activity.id;
+                div.appendChild(span);
+                div.appendChild(button);
+            
+                parent.appendChild(div);
+                //uniqueId++;
+            })
+            addRemove();
+        })
+        .catch((error) => {
+            throw new Error(error);
+        })
 
-    activityList.forEach((activity) => {
-        const div = document.createElement('div');
-        const button = document.createElement('button');
-        button.className = 'remove';
-        button.innerText = 'Remove';
-        const parent = document.getElementById('activitylist');
-        const span = document.createElement('span');
-        span.className='item-text'
-        span.innerText=activity;
-        
-        div.className = "saved-item";
-        div.id = uniqueId;
-        div.appendChild(span);
-        div.appendChild(button);
+
+    // const jsonString = localStorage.getItem("SavedActivity");
+    // const data = JSON.parse(jsonString);
+    // activityList = data.activities;
+    // let uniqueId = 1;
+
     
-        parent.appendChild(div);
-        uniqueId++;
-    })
-    addRemove();
 });
 
 
