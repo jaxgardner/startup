@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 div.appendChild(button);
             
                 parent.appendChild(div);
-                //uniqueId++;
             })
             addRemove();
         })
@@ -49,7 +48,6 @@ function addRemove(){
                 if (!response.ok) {
                   throw new Error('Network response was not ok');
                 }
-                // Optionally handle the response, if needed
                 button.parentElement.remove();
               })
               .catch((error) => {

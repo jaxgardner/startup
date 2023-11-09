@@ -34,20 +34,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function saveActivity() {
-    const currentActivity = document.getElementById("mainbutton").innerText;
-
+        const currentActivity = document.getElementById("mainbutton").innerText;
     
-        const activities = localStorage.getItem("SavedActivity");
+        // const activities = localStorage.getItem("SavedActivity");
 
-        const myObject = JSON.parse(activities || '{"activities": []}');
+        // const myObject = JSON.parse(activities || '{"activities": []}');
 
-        myObject.activities.push(currentActivity);
+        // myObject.activities.push(currentActivity);
 
-        const updatedData = JSON.stringify(myObject);
+        // const updatedData = JSON.stringify(myObject);
 
-        console.log(updatedData)
+        // console.log(updatedData)
 
-        localStorage.setItem('SavedActivity', updatedData);
+        // localStorage.setItem('SavedActivity', updatedData);
+
+        fetch(`http://localhost:8080/save-activity/${currentActivity}`, {
+            method: "POST"
+        })
+        .then((response)=> {
+            if(!response.ok){
+                throw new Error("Network not working.");
+            }
+        })
+        .catch((error) => {
+            throw new Error(error);
+        })
 
 
     closeActivity();

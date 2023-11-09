@@ -162,7 +162,7 @@ header {
     width: 250px;
     height: 250px;
     font-family: inherit;
-    font-size: 2.7rem;
+    font-size: 2.3rem;
     color: white;
     border-radius: 20px;
     border: 2px solid white
@@ -170,7 +170,7 @@ header {
 }
 
 .activitybutton button:hover {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
 }
 
 .donebutton {
