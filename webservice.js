@@ -15,6 +15,8 @@ let savedActivities = [
 
 ];
 
+let username = "Jaxon";
+
 function generateNumericId(length) {
   let result = '';
   const characters = '0123456789';
@@ -38,10 +40,28 @@ app.post('/save-activity/:activity', (req, res) => {
   }
 });
 
+// Endpoint to save username
+app.post('/login/:username', (req, res) => {
+  const usr = req.params.username; 
+  if (usr) {
+    username = usr;
+    res.json({ success: true, message: 'Username saved successfully' });
+  } else {
+    res.status(400).json({ success: false, message: 'Username not provided' });
+  }
+});
+
 // Endpoint to retrieve saved activities
 app.get('/get-saved-activities', (req, res) => {
   res.json(savedActivities);
+  res.end();
 });
+
+
+app.get('/user/username', (req, res) => {
+  res.json({user: username});
+  res.end();
+})
 
 // Endpoint to remove a saved activity
 app.delete('/remove-activity/:activityId', (req, res) => {

@@ -1,7 +1,22 @@
+
+
 function login(form){
     const username = form.username.value;
-    localStorage.setItem("username", username);
-    console.log(localStorage.getItem("username"));
+
+    fetch(`http://localhost:8080/login/${username}`, {
+        method: "POST"
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+    })
+    .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+
+    // localStorage.setItem("username", username);
+    // console.log(localStorage.getItem("username"));
 }
 
 document.addEventListener('DOMContentLoaded', function() {

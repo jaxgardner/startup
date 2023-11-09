@@ -29,24 +29,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
+    fetch("http://localhost:8080/user/username", {
+        method: "GET"
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw new Error("Network not working")
+        }
+        return response.json();
+    })
+    .then((data) => {
+        user.textContent = data.user;
+    })
+    .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+
     // Change the text of the div element immediately
     user.textContent = localStorage.getItem("username");
 });
 
 function saveActivity() {
         const currentActivity = document.getElementById("mainbutton").innerText;
-    
-        // const activities = localStorage.getItem("SavedActivity");
-
-        // const myObject = JSON.parse(activities || '{"activities": []}');
-
-        // myObject.activities.push(currentActivity);
-
-        // const updatedData = JSON.stringify(myObject);
-
-        // console.log(updatedData)
-
-        // localStorage.setItem('SavedActivity', updatedData);
 
         fetch(`http://localhost:8080/save-activity/${currentActivity}`, {
             method: "POST"
@@ -63,8 +67,6 @@ function saveActivity() {
 
     closeActivity();
 }
-
-
 
 
 
