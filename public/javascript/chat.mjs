@@ -2,9 +2,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    // Change the text of the div element immediately
-    user.textContent = localStorage.getItem("username");
-});
+    fetch("http://localhost:4000/user/username", {
+        method: "GET"
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw new Error("Network not working")
+        }
+        return response.json();
+    })
+    .then((data) => {
+        user.textContent = data.user;
+    })
+    .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+})
 
 document.getElementById("addInputMessage").addEventListener('click', function(event){
     event.preventDefault;

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
-    fetch('http://localhost:8080/get-saved-activities')
+    fetch('http://localhost:4000/get-saved-activities')
         .then((response)=> {
             if(!response.ok){
                 throw new Error("Network not working.");
@@ -41,7 +41,7 @@ function addRemove(){
         button.addEventListener('click', function(event) {
             const activityId = button.parentElement.id;
 
-            fetch(`http://localhost:8080/remove-activity/${activityId}`, {
+            fetch(`http://localhost:4000/remove-activity/${activityId}`, {
                 method: 'DELETE'
             })
             .then((response) => {
@@ -62,7 +62,20 @@ function addRemove(){
 document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
-
-    // Change the text of the div element immediately
-    user.textContent = localStorage.getItem("username");
-});
+    
+    fetch("http://localhost:4000/user/username", {
+        method: "GET"
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw new Error("Network not working")
+        }
+            return response.json();
+        })
+    .then((data) => {
+        user.textContent = data.user;
+    })
+    .catch((error) => {
+        console.error('Fetch error:', error);
+    });
+})

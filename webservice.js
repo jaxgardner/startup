@@ -5,17 +5,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 let savedActivities = [
-  {id: "1", name: "Build a model airplane"}, 
-  {id: "2", name: "Write short stories"}, 
-  {id: "3", name: "Visit an art gallery"},
-  {id: "4", name: "Have a karaoke night"},
-  {id: "5", name: "Bake cookies"},
-  {id: "6", name: "Learn astronomy"},
-  {id: "7", name: "Take up archery"},
+  
 
 ];
 
-let username = "Jaxon";
+let username = "Not logged in";
 
 function generateNumericId(length) {
   let result = '';
@@ -82,7 +76,7 @@ app.delete('user/:userId', (req, res) => {})
 
 app.use(express.static('public'));
 
-const port = 8080;
+const port = 4000;
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });

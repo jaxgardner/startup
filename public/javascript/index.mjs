@@ -18,7 +18,7 @@ function getActivity() {
 
 function closeActivity() {
     const button = document.getElementById("mainbutton");
-    button.innerText = "Tap here";
+    button.innerText = "Tap Here";
     const donebutton = document.getElementById("bottombutton");
     donebutton.style.display = "none";
     const savebutton = document.getElementById("savebutton");
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    fetch("http://localhost:8080/user/username", {
+    fetch("http://localhost:4000/user/username", {
         method: "GET"
     })
     .then((response) => {
@@ -44,15 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch((error) => {
         console.error('Fetch error:', error);
       });
-
-    // Change the text of the div element immediately
-    user.textContent = localStorage.getItem("username");
 });
 
 function saveActivity() {
         const currentActivity = document.getElementById("mainbutton").innerText;
 
-        fetch(`http://localhost:8080/save-activity/${currentActivity}`, {
+        fetch(`http://localhost:4000/save-activity/${currentActivity}`, {
             method: "POST"
         })
         .then((response)=> {

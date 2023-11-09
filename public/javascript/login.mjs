@@ -3,7 +3,7 @@
 function login(form){
     const username = form.username.value;
 
-    fetch(`http://localhost:8080/login/${username}`, {
+    fetch(`http://localhost:4000/login/${username}`, {
         method: "POST"
     })
     .then((response) => {
