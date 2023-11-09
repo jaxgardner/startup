@@ -4,7 +4,16 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-let savedActivities = [{id: "abc123", name: "run"}, {id: "2", name: "cook"}, {id: 3, name: "dance"}];
+let savedActivities = [
+  {id: "1", name: "Build a model airplane"}, 
+  {id: "2", name: "Write short stories"}, 
+  {id: "3", name: "Visit an art gallery"},
+  {id: "4", name: "Have a karaoke night"},
+  {id: "5", name: "Bake cookies"},
+  {id: "6", name: "Learn astronomy"},
+  {id: "7", name: "Take up archery"},
+
+];
 
 function generateNumericId(length) {
   let result = '';

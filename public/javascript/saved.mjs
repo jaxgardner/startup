@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then((data) => {
-            let activityList = data;
+            const activityList = data;
             activityList.forEach((activity) => {
                 const div = document.createElement('div');
                 const button = document.createElement('button');
@@ -32,14 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch((error) => {
             throw new Error(error);
         })
-
-
-    // const jsonString = localStorage.getItem("SavedActivity");
-    // const data = JSON.parse(jsonString);
-    // activityList = data.activities;
-    // let uniqueId = 1;
-
-    
 });
 
 
@@ -48,22 +40,21 @@ function addRemove(){
 
     buttons.forEach(function(button) {
         button.addEventListener('click', function(event) {
-            const activity = button.parentElement.querySelector('.item-text').textContent;
-            
-            const jsonString = localStorage.getItem("SavedActivity");
-            const data = JSON.parse(jsonString);
-            const activityList = data.activities;
+            const activityId = button.parentElement.id;
 
-            const index = activityList.indexOf(activity);
-            activityList.splice(index, 1);
-
-            data.activities = activityList;
-            
-            const updatedList = JSON.stringify(data);
-
-            localStorage.setItem("SavedActivity", updatedList);
-
-            button.parentElement.remove();
+            fetch(`http://localhost:8080/remove-activity/${activityId}`, {
+                method: 'DELETE'
+            })
+            .then((response) => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                // Optionally handle the response, if needed
+                button.parentElement.remove();
+              })
+              .catch((error) => {
+                console.error('Fetch error:', error);
+              });
         });
     }
     )}
