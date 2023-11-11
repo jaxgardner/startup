@@ -83,3 +83,11 @@ Section 4
 - In the Saved page it displays saved activities from local storage.
 - The login page submits your username to the rest of the website allowing for future support of login abilities.
 
+## Webservice Production
+- Added endpoints for username/saving and deleting activity cards
+- Called third party webservice to put a random quote on the login screen
+- Use static ware to deliver the html pages
+- Stores the information in the backend, but eventually will be stored in a database.
+- Frontend calls and uses the endpoints.
+
+
