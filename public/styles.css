@@ -120,7 +120,7 @@ header {
 
 .user h2 {
     margin: 0;
-    word-wrap: break-word;
+    word-wrap:initial;
 }
 
 

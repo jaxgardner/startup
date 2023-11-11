@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
-    fetch('http://localhost:4000/get-saved-activities')
+    fetch('/get-saved-activities')
         .then((response)=> {
             if(!response.ok){
                 throw new Error("Network not working.");
@@ -41,7 +41,7 @@ function addRemove(){
         button.addEventListener('click', function(event) {
             const activityId = button.parentElement.id;
 
-            fetch(`http://localhost:4000/remove-activity/${activityId}`, {
+            fetch(`/remove-activity/${activityId}`, {
                 method: 'DELETE'
             })
             .then((response) => {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
     
-    fetch("http://localhost:4000/user/username", {
+    fetch("/user/username", {
         method: "GET"
     })
     .then((response) => {

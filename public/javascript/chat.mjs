@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    fetch("http://localhost:4000/user/username", {
+    fetch("/user/username", {
         method: "GET"
     })
     .then((response) => {

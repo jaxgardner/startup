@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    fetch("http://localhost:4000/user/username", {
+    fetch("/user/username", {
         method: "GET"
     })
     .then((response) => {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function saveActivity() {
         const currentActivity = document.getElementById("mainbutton").innerText;
 
-        fetch(`http://localhost:4000/save-activity/${currentActivity}`, {
+        fetch(`/save-activity/${currentActivity}`, {
             method: "POST"
         })
         .then((response)=> {
