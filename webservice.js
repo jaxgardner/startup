@@ -4,10 +4,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-let savedActivities = [
-  
-
-];
+let savedActivities = [];
 
 let username = "Not logged in";
 
@@ -20,7 +17,6 @@ function generateNumericId(length) {
   }
   return result;
 }
-
 
 // Endpoint to save an activity
 app.post('/save-activity/:activity', (req, res) => {
@@ -51,7 +47,7 @@ app.get('/get-saved-activities', (req, res) => {
   res.end();
 });
 
-
+// Endpoint to get username
 app.get('/user/username', (req, res) => {
   res.json({user: username});
   res.end();
@@ -69,7 +65,6 @@ app.delete('/remove-activity/:activityId', (req, res) => {
     res.status(404).json({ success: false, message: 'Activity not found' });
   }
 });
-
 
 // Delete user account
 app.delete('user/:userId', (req, res) => {})
