@@ -8,6 +8,8 @@ let savedActivities = [];
 
 let username = "Not logged in";
 
+app.use(express.static('public'));
+
 function generateNumericId(length) {
   let result = '';
   const characters = '0123456789';
@@ -69,7 +71,9 @@ app.delete('/remove-activity/:activityId', (req, res) => {
 // Delete user account
 app.delete('user/:userId', (req, res) => {})
 
-app.use(express.static('public'));
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
 
 const port = 4000;
 app.listen(port, function () {
