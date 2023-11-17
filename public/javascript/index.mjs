@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 
 function logout() {
-    localStorage.removeItem('userName');
     fetch(`/auth/logout`, {
       method: 'delete',
     }).then(() => (window.location.href = '/login.html'));

@@ -1,23 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    fetch("/user/username", {
+    fetch("/user/me", {
         method: "GET"
     })
     .then((response) => {
-        if(!response.ok){
-            throw new Error("Network not working")
+        if(response.status === 401){
+            window.location.href = '/login.html';
         }
         return response.json();
     })
     .then((data) => {
-        user.textContent = data.user;
+        user.textContent = data.username;
     })
     .catch((error) => {
-        console.error('Fetch error:', error);
+        console.log(error);
       });
-})
+});
+
+function logout() {
+    fetch(`/auth/logout`, {
+      method: 'delete',
+    }).then(() => (window.location.href = '/login.html'));
+  }
 
 document.getElementById("addInputMessage").addEventListener('click', function(event){
     event.preventDefault;
