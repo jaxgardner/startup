@@ -1,7 +1,14 @@
+const { MongoClient } = require('mongodb');
+const uuid = require('uuid');
+const bcrypt = require('bcrypt');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const config = require('./database/dbConfig.json');
 
+app.use(cookieParser());
+app.use(express.json());
 app.use(bodyParser.json());
 
 let savedActivities = [];
@@ -70,6 +77,76 @@ app.delete('/remove-activity/:activityId', (req, res) => {
 
 // Delete user account
 app.delete('user/:userId', (req, res) => {})
+
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const client = new MongoClient(url);
+const collection = client.db('authTest').collection('user');
+
+// createAuthorization from the given credentials
+app.post('/auth/create', async (req, res) => {
+  if (await getUser(req.body.username)) {
+    res.status(409).send({ msg: 'Existing user' });
+  } else {
+    const user = await createUser(req.body.username, req.body.password);
+    setAuthCookie(res, user.token);
+    res.status(201).send({
+      id: user._id,
+    });
+  }
+});
+
+// loginAuthorization from the given credentials
+app.post('/auth/login', async (req, res) => {
+  const user = await getUser(req.body.username);
+  if (user) {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      setAuthCookie(res, user.token);
+      res.send({ id: user._id });
+      return;
+    }
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
+
+// getMe for the currently authenticated user
+app.get('/user/me', async (req, res) => {
+  authToken = req.cookies['token'];
+  const user = await collection.findOne({ token: authToken });
+  if (user) {
+    res.send({ username: user.username });
+    return;
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
+
+app.delete('/auth/logout', (_req, res) => {
+  res.clearCookie('token');
+  res.status(204).end();
+});
+
+function getUser(username) {
+  return collection.findOne({ username: username });
+}
+
+async function createUser(username, password) {
+  const passwordHash = await bcrypt.hash(password, 10);
+  const user = {
+    username: username,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  await collection.insertOne(user);
+
+  return user;
+}
+
+function setAuthCookie(res, authToken) {
+  res.cookie('token', authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
 
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });

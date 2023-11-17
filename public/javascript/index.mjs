@@ -25,28 +25,35 @@ function closeActivity() {
     savebutton.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     // Select the div element
     const user = document.getElementById("userplace");
 
-    fetch("/user/username", {
+    fetch("/user/me", {
         method: "GET"
     })
     .then((response) => {
-        if(!response.ok){
-            throw new Error("Network not working")
+        if(response.status === 401){
+            window.location.href = '/login.html';
         }
         return response.json();
     })
     .then((data) => {
-        user.textContent = data.user;
+        user.textContent = data.username;
     })
     .catch((error) => {
-        console.error('Fetch error:', error);
+        console.log(error);
       });
 });
 
-function saveActivity() {
+function logout() {
+    localStorage.removeItem('userName');
+    fetch(`/auth/logout`, {
+      method: 'delete',
+    }).then(() => (window.location.href = '/login.html'));
+  }
+
+async function saveActivity() {
         const currentActivity = document.getElementById("mainbutton").innerText;
 
         fetch(`/save-activity/${currentActivity}`, {

@@ -1,22 +1,26 @@
+const form = document.getElementById('loginForm'); // Replace 'yourFormId' with the actual ID of your form
+form.addEventListener('submit', login);
 
+async function login(event){
+    event.preventDefault();
 
-function login(form){
-    const username = form.username.value;
+    const response = await fetch('/auth/login', {
+        method: "POST",
+        body: JSON.stringify({
+            username: event.target.username.value,
+            password: event.target.password.value
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
 
-    fetch(`/login/${username}`, {
-        method: "POST"
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-    })
-    .catch((error) => {
-        console.error('Fetch error:', error);
-      });
-
-    // localStorage.setItem("username", username);
-    // console.log(localStorage.getItem("username"));
+    if(response.ok){
+        window.location.href = './index.html';
+    } else {
+        const errorData = await response.json(); 
+        console.error("Error:", response.status, response.statusText, errorData);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
