@@ -123,6 +123,18 @@ header {
     word-wrap:initial;
 }
 
+#logout {
+    font-family: inherit;
+    background-color: #362F2F;
+    color: white;
+    border: none;
+    width: 45px;
+    height: 20px;
+}
+
+#logout:hover {
+    color:#F17829;
+}
 
 @media only screen and (max-width: 768px) {
     header {

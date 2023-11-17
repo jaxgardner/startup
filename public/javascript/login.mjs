@@ -13,14 +13,16 @@ async function login(event){
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
-    });
-
-    if(response.ok){
-        window.location.href = './index.html';
-    } else {
-        const errorData = await response.json(); 
-        console.error("Error:", response.status, response.statusText, errorData);
-    }
+    })
+    .then((response) => {
+        if(response.ok){
+            window.location.href = './index.html';
+        } 
+        else {
+            alert("Incorrect username or password");
+        }
+    })
+    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
