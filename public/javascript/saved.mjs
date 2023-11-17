@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then((data) => {
-            const activityList = data;
+            console.log(data);
+            const activityList = data.savedActivities;
             activityList.forEach((activity) => {
                 const div = document.createElement('div');
                 const button = document.createElement('button');
