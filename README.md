@@ -99,5 +99,5 @@ Section 4
  - Consistently stores the username in a cookie
  - Deletes cookie when logging out
  - Shows username and connects saved activities list to user
-
+ - Can't access the main page unless you're logged in. 
 
