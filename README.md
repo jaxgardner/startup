@@ -90,4 +90,14 @@ Section 4
 - Stores the information in the backend, but eventually will be stored in a database.
 - Frontend calls and uses the endpoints.
 
+## Database production
+ - Service now consistently stores the saved list of activites in the database
+ - It connects to a MongoDB Atlas server
+
+## Login Production
+ - Can create and login with an username/password.
+ - Consistently stores the username in a cookie
+ - Deletes cookie when logging out
+ - Shows username and connects saved activities list to user
+ - Can't access the main page unless you're logged in. 
 
