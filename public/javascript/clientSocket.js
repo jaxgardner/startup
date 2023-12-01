@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://localhost:4000');
+const socket = new WebSocket('wss://startup.immersedly.com');
 
 // Event listener for connection
 socket.addEventListener('open', (event) => {
@@ -29,7 +29,6 @@ document.getElementById('inputMessage').addEventListener('keydown', function(eve
     
     if(event.key === 'Enter'){
         const text = document.getElementById('inputMessage').value;
-        console.log(text);
         event.preventDefault();
         socket.send(text);
 
