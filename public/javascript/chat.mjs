@@ -41,16 +41,20 @@ document.getElementById('inputMessage').addEventListener('keydown', function(eve
 })
     
 function addMessage() {
+    const user = document.getElementById("userplace").textContent;
+    console.log(user);
 
     const text = document.getElementById('inputMessage').value;
 
     const newMessage = document.createElement('div');
     const parent = document.getElementById("messages");
 
-    newMessage.id = 'message';
+    newMessage.className = 'sent-message';
     newMessage.innerHTML = text;
 
     parent.appendChild(newMessage);
+
+    parent.scrollTop = parent.scrollHeight;
 
 }
     

@@ -43,9 +43,11 @@ function addRecievedMessage(text) {
     const newMessage = document.createElement('div');
     const parent = document.getElementById("messages");
 
-    newMessage.id = 'message2';
+    newMessage.className = 'received-message';
     newMessage.innerHTML = text;
 
     parent.appendChild(newMessage);
+
+    parent.scrollTop = parent.scrollHeight;
 
 }
