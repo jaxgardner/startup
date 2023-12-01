@@ -436,27 +436,29 @@ header {
 
 #message {
     background-color: #19598E;
-    width: 50%;
+    width: 40%;
     height: 30px;
-    text-align: center;
+    text-align: end;
     color: white;
     border-radius: 20px;
     line-height: 30px;
     align-self: flex-end;
     justify-self: flex-end;
     margin-top: 10px;
+    padding-right: 15px;
 }
 
 #message2 {
     background-color: grey;
-    width: 50%;
+    width: 40%;
     height: 30px;
-    text-align: center;
+    text-align: start;
     color: white;
     border-radius: 20px;
     line-height: 30px;
     align-self: flex-start;
     margin-top: 10px;
+    padding-left: 15px;
 }
 
 .quote {

@@ -6,13 +6,15 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const config = require('./dbConfig.json');
+const webSocket = require('./webSocket');
+
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
-cc
+
 function generateNumericId(length) {
   let result = '';
   const characters = '0123456789';
@@ -150,6 +152,8 @@ app.use((_req, res) => {
 });
 
 const port = 4000;
-app.listen(port, function () {
+const httpService = app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
+
+webSocket.instantMessages(httpService);

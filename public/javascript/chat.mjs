@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", async function() {
     // Select the div element
     const user = document.getElementById("userplace");
@@ -39,6 +41,7 @@ document.getElementById('inputMessage').addEventListener('keydown', function(eve
 })
     
 function addMessage() {
+
     const text = document.getElementById('inputMessage').value;
 
     const newMessage = document.createElement('div');
@@ -49,8 +52,5 @@ function addMessage() {
 
     parent.appendChild(newMessage);
 
-    const button = document.getElementById("inputMessage");
-    button.value = '';
 }
     
-
