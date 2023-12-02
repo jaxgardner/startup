@@ -99,5 +99,12 @@ Section 4
  - Consistently stores the username in a cookie
  - Deletes cookie when logging out
  - Shows username and connects saved activities list to user
- - Can't access the main page unless you're logged in. 
+ - Can't access the main page unless you're logged in.
+
+## Websocket Production
+ - Backend makes websocket connection when chat page is clicked on
+ - Frontend connects to websocket when chat page is clicked
+ - Can send messages to anyone currently on the website using the chat feature
+ - Everything is completely anonymous
+ - Messages disappear upon reloading the page
 
