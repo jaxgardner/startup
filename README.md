@@ -108,3 +108,10 @@ Section 4
  - Everything is completely anonymous
  - Messages disappear upon reloading the page
 
+## React Conversion
+ - Converted all elements to the react framework
+ - Added feature where homescreen is displayed but other feature not available until logged in
+ - Reconnected backend to frontend
+ - Fixed some styling issues
+ - Added routes in the main JS application
+
