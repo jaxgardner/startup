@@ -14,28 +14,14 @@ const ReceivedMessage = ({message}) => {
     )
 }
 
-function generateNumericId(length) {
-    let result = '';
-    const characters = '0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-
 
 function Chat() {
     const [messages, setMessages] = useState([]);
-    const [message, setMessage] = useState({message: ''});
+    const [message, setMessage] = useState('');
     const [socket, setSocket] = useState(null);
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
-        setMessage((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
+        setMessage(event.target.value);
     };
 
     useEffect(() => {
@@ -47,6 +33,8 @@ function Chat() {
         });
     
         newSocket.addEventListener('message', (event) => {
+            console.log(event.data);
+            receivedMessage(event.data)
         });
     
         newSocket.addEventListener('close', () => {
@@ -61,12 +49,27 @@ function Chat() {
 
 
     const sendMessage = () => {
-        const newMessage = <SentMessage  message={message.message}/>
+        const newMessage = <SentMessage  message={message}/>
 
         const updatedMessages = [...messages, newMessage];
         setMessages(updatedMessages);
-
+        socket.send(message);
+        setMessage('');
     }
+
+    const receivedMessage = (text) => {
+        const newMessage = <ReceivedMessage message={text}/>
+
+        const updatedMessages = [...messages, newMessage];
+        setMessages(updatedMessages);
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+          // Handle Enter key press here
+          sendMessage();
+        }
+      };
     
       
     return (
@@ -81,8 +84,8 @@ function Chat() {
                     <React.Fragment key={index}>{component}</React.Fragment>
                ))}
                 </div>    
-                <div className="input-container">
-                    <input id="inputMessage" type="text" name='message' placeholder="Type something..." value={message.message} onChange={handleChange}></input>
+                <div className="input-container" onKeyDown={handleKeyPress}>
+                    <input id="inputMessage" type="text" name='message' placeholder="Type something..." value={message} onChange={handleChange}></input>
                     <button id="addInputMessage" type="button" onClick={sendMessage}>Send</button>
                 </div>
             </div>

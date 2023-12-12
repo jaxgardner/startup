@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'r
 import './App.css'
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     const handleLogin = ({loggedIn}) => {
         setIsLoggedIn(loggedIn);
