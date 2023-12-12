@@ -1,10 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const logout = () => {
-    // Implement your logout logic here
+  const [userName, changeUsername] = useState('');
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    try {
+      await fetch(`http://localhost:4000/auth/logout`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+      navigate('/login');
+      changeUsername('');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
   };
+
+  useEffect(() => {
+    async function getUserName() {
+      try {
+        const response = await fetch(`http://localhost:4000/user/me`, {
+          method: 'GET',
+          credentials: 'include'
+        });
+        const text = await response.json();
+        changeUsername(text.username);
+      } catch (error) {
+        console.error('Error: ', error);
+      }
+    }
+
+    getUserName();
+  }, [])
 
   return (
     <header>
@@ -25,7 +55,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="user">
-        <h2 id="userplace">Jaxon</h2>
+        <h2 id="userplace">{userName}</h2>
         <button id="logout" onClick={logout}>
           Logout
         </button>

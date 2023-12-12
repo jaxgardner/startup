@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 
-//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static('public'));
 
 function generateNumericId(length) {
   let result = '';
@@ -121,7 +121,6 @@ app.post('/auth/login', async (req, res) => {
       res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
       res.header('Access-Control-Allow-Credentials', 'true');      
       setAuthCookie(res, user.token);
-      console.log(user);
       res.send({ id: user._id });
       return;
     }
@@ -131,6 +130,7 @@ app.post('/auth/login', async (req, res) => {
 
 // getMe for the currently authenticated user
 app.get('/user/me', async (req, res) => {
+  console.log("getting user")
   authToken = req.cookies['token'];
   const user = await collection.findOne({ token: authToken });
   if (user) {
@@ -171,7 +171,7 @@ function setAuthCookie(res, authToken) {
 }
 
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, 'dist') });
+  res.sendFile('index.html', { root: '../' });
 });
 
 const port = 4000;
