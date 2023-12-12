@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Header from './modules/header';
+import HeaderLogin from './modules/headerlogin';
 import Home from './pages/home';
 import Chat from './pages/chat';
 import Saved from './pages/saved';
@@ -10,19 +12,37 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+    const handleLogin = ({loggedIn}) => {
+        setIsLoggedIn(loggedIn);
+    }
+
     return (
         <Router>
-            <Header/>
+            {isLoggedIn ? (
+                <Header onLogout={handleLogin}/>
+            ) : (
+                <HeaderLogin />
+            )}
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path='/chat' element={<Chat/>}/>
-                <Route path='/saved' element={<Saved/>}/>
-                <Route path='/login' element={<Login/>}/>
-                <Route path='/createaccount' element={<CreateAccount/>}/>
-            </Routes>
-            <Footer />
+                {isLoggedIn ? (
+                <>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/chat" element={<Chat />} />
+                    <Route path="/saved" element={<Saved />} />
+                </>
+                ) : (
+                <>
+                    <Route path="/login" element={<Login onLogin={handleLogin}/>} />
+                    <Route path="/createaccount" element={<CreateAccount />} />
+                </>
+                )}
+          </Routes>
+          <Footer />
         </Router>
-    )
-}
+      );
+    }
+
 
 export default App

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-function Login() {
+function Login({ onLogin }) {
     const [quote, updateQuote] = useState('-Today is a great day');
     const [formData, setFormData] = useState({
         username: '',
@@ -49,14 +49,13 @@ function Login() {
             },
           });
       
-          console.log('Response status:', response.status);
       
           if (!response.ok) {
             const errorMessage = await response.text();
             throw new Error(`Request failed with status ${response.status}: ${errorMessage}`);
           }
-          console.log(response);
           // Handle successful response
+          onLogin({ loggedIn: true});
           navigate('/');
         } catch (error) {
           console.error('Error:', error.message);

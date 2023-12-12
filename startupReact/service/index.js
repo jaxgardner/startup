@@ -130,7 +130,6 @@ app.post('/auth/login', async (req, res) => {
 
 // getMe for the currently authenticated user
 app.get('/user/me', async (req, res) => {
-  console.log("getting user")
   authToken = req.cookies['token'];
   const user = await collection.findOne({ token: authToken });
   if (user) {

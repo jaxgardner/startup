@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ( { onLogout }) => {
   const [userName, changeUsername] = useState('');
   const navigate = useNavigate();
 
@@ -14,6 +14,7 @@ const Header = () => {
       });
       navigate('/login');
       changeUsername('');
+      onLogout({isLoggedIn: false});
     } catch (error) {
       console.error('Error during logout:', error);
     }
