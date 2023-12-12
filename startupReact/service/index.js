@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 
-app.use(express.static('public'));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 function generateNumericId(length) {
   let result = '';
@@ -171,7 +171,7 @@ function setAuthCookie(res, authToken) {
 }
 
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+  res.sendFile('index.html', { root: path.join(__dirname, 'dist') });
 });
 
 const port = 4000;

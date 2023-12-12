@@ -2,17 +2,40 @@ import React from 'react';
 import '../index.css'
 import { useState, useEffect } from 'react';
 
-const Activity = ({name}) => {
+const Activity = ({name, id, onClick}) => {
+    
+
+    const removeActivity = () => {
+        onClick({id});
+    }
+    
     return(
-     <div className='saved-item'>
+     <div className='saved-item' id={id}>
         <span className='item-text'>{name}</span>
-        <button className='remove'>Remove</button>
+        <button className='remove' onClick={removeActivity}>Remove</button>
      </div>   
     )
 }
 
 function Saved() {
     const [activities, updateActivities] = useState([]);
+
+    const removeActivity = ({id}) => {
+        fetch(`http://localhost:4000/remove-activity/${id}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        })
+        .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            } 
+            const newList = activities.filter((activity) => activity.id !== id);
+            updateActivities(newList);
+          })
+          .catch((error) => {
+            console.error('Fetch error:', error);
+          });
+    }
 
     // Get saved activities
     useEffect(() => {
@@ -24,7 +47,6 @@ function Saved() {
         })
           .then((data) => data.json())
           .then((response) => {
-            console.log(response.savedActivities);
             updateActivities(response.savedActivities);
 
           })
@@ -42,7 +64,7 @@ function Saved() {
             </div>  
             <div className="grid-container" id="activitylist">
                {activities.map((activity) => (
-                    <Activity name={activity.name} key={activity.id}/>
+                    <Activity name={activity.name} key={activity.id} id={activity.id} onClick={removeActivity}/>
                ))}
             </div>
             
