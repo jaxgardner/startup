@@ -1,12 +1,15 @@
 import React from 'react';
 import '../index.css'
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 
-function CreateAccount() {
+
+function CreateAccount({ onLogin }) {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
     });
+    const navigate = useNavigate();
     
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -16,16 +19,35 @@ function CreateAccount() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    async function handleSubmit(event) {
         event.preventDefault();
-        // Access form data from the state variable formData
-        console.log(formData);
-        setFormData({
-            username: '',
-            password: '',
-        })
-        // Add your logic for handling form submission here
-    };
+      
+        try {
+          const response = await fetch('http://localhost:4000/auth/create', {
+            method: 'POST',
+            body: JSON.stringify({
+              username: formData.username,
+              password: formData.password,
+            }),
+            credentials: 'include',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+          });
+      
+      
+          if (!response.ok) {
+            const errorMessage = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorMessage}`);
+          }
+          // Handle successful response
+          onLogin({ loggedIn: true});
+          navigate('/');
+        } catch (error) {
+          console.error('Error:', error.message);
+          alert('An error occurred during creation');
+        }
+      }
     
     
     return (

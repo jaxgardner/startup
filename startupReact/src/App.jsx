@@ -8,15 +8,19 @@ import Saved from './pages/saved';
 import Login from './pages/login';
 import CreateAccount from './pages/createAccount';
 import Footer from './modules/footer';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import './App.css'
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleLogin = ({loggedIn}) => {
         setIsLoggedIn(loggedIn);
     }
+
+    const ProtectedRoute = ({ element }) => {
+        return isLoggedIn ? element : <Navigate to="/login" />;
+    };
 
     return (
         <Router>
@@ -25,20 +29,14 @@ function App() {
             ) : (
                 <HeaderLogin />
             )}
-            <Routes>
-                {isLoggedIn ? (
-                <>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/chat" element={<Chat />} />
-                    <Route path="/saved" element={<Saved />} />
-                </>
-                ) : (
-                <>
-                    <Route path="/login" element={<Login onLogin={handleLogin}/>} />
-                    <Route path="/createaccount" element={<CreateAccount />} />
-                </>
-                )}
-          </Routes>
+           <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                <Route path="/createaccount" element={<CreateAccount onLogin={handleLogin}/>} />
+                {/* Use the ProtectedRoute component for protected routes */}
+                <Route path="/chat" element={<ProtectedRoute element={<Chat />} />} />
+                <Route path="/saved" element={<ProtectedRoute element={<Saved />} />} />
+            </Routes>
           <Footer />
         </Router>
       );
