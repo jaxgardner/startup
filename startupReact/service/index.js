@@ -12,7 +12,13 @@ const cors = require('cors');
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
+};
+
+app.use(cors(corsOptions))
 
 
 app.use(express.static('public'));
@@ -31,8 +37,15 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const collection = client.db('startup').collection('users');
 
-// Test variable
-let activities = [];
+
+app.options('/auth/login', (req, res) => {
+  // Preflight request, respond with appropriate CORS headers
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.sendStatus(204);
+});
 
 // Endpoint to save an activity
 app.post('/save-activity/:activity', async (req, res) => {
@@ -54,13 +67,6 @@ app.post('/save-activity/:activity', async (req, res) => {
   }
 });
 
-//Test endpoint
-app.post('/save-activity1/:activity', async (req, res) => {
-  const activity = req.params.activity; 
-  activities.push(activity);
-  res.sendStatus(200);
-});
-
 // Endpoint to retrieve saved activities
 app.get('/get-saved-activities', async (req, res) => {
   const userToken = req.cookies['token'];
@@ -70,9 +76,7 @@ app.get('/get-saved-activities', async (req, res) => {
   }
 });
 
-app.get('/get-saved-activities1', async (req, res) => {
-    res.status(200).json({ savedActivities: activities });
-});
+
 
 // Endpoint to remove a saved activity
 app.delete('/remove-activity/:activityId', async (req, res) => {
@@ -114,8 +118,10 @@ app.post('/auth/login', async (req, res) => {
   const user = await getUser(req.body.username);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+      res.header('Access-Control-Allow-Credentials', 'true');      
       setAuthCookie(res, user.token);
+      console.log(user);
       res.send({ id: user._id });
       return;
     }
@@ -158,9 +164,9 @@ async function createUser(username, password) {
 
 function setAuthCookie(res, authToken) {
   res.cookie('token', authToken, {
-    secure: true,
-    httpOnly: true,
-    sameSite: 'strict',
+    secure: false,
+    httpOnly: false,
+    sameSite: 'Strict',
   });
 }
 

@@ -35,8 +35,7 @@ function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData.username);
-        console.log(formData.password);
+      
         try {
           const response = await fetch('http://localhost:4000/auth/login', {
             method: 'POST',
@@ -44,6 +43,7 @@ function Login() {
               username: formData.username,
               password: formData.password,
             }),
+            credentials: 'include',
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
             },
@@ -55,7 +55,7 @@ function Login() {
             const errorMessage = await response.text();
             throw new Error(`Request failed with status ${response.status}: ${errorMessage}`);
           }
-      
+          console.log(response);
           // Handle successful response
           navigate('/');
         } catch (error) {
@@ -65,17 +65,6 @@ function Login() {
       }
       
  
-      function handleSubmit2(event) {
-        event.preventDefault();
-        const response = { ok: true };
-
-        if (response.ok) {
-        // Redirect to the home page on successful login
-        navigate('/'); // Assuming '/' is the route for the home page
-        } else {
-        alert('Incorrect username or password');
-        }
-    };
     
     return (
         <main id="main">
