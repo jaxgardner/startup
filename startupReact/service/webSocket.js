@@ -7,6 +7,7 @@ function instantMessages(httpServer) {
   
     // Handle the protocol upgrade from HTTP to WebSocket
     httpServer.on('upgrade', (request, socket, head) => {
+      console.log("Attempting")
       wss.handleUpgrade(request, socket, head, function done(ws) {
         wss.emit('connection', ws, request);
       });
@@ -31,6 +32,7 @@ function instantMessages(httpServer) {
   
       // Remove the closed connection so we don't try to forward anymore
       ws.on('close', () => {
+        console.log("Connection closed")
         connections.findIndex((o, i) => {
           if (o.id === connection.id) {
             connections.splice(i, 1);
