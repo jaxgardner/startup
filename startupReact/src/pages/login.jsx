@@ -37,7 +37,7 @@ function Login({ onLogin }) {
         event.preventDefault();
       
         try {
-          const response = await fetch('http://localhost:4000/auth/login', {
+          const response = await fetch('/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({
               username: formData.username,
@@ -54,6 +54,7 @@ function Login({ onLogin }) {
             const errorMessage = await response.text();
             throw new Error(`Request failed with status ${response.status}: ${errorMessage}`);
           }
+          console.log(response);
           // Handle successful response
           onLogin({ loggedIn: true});
           navigate('/');

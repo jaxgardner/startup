@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import Header from './modules/header';
 import HeaderLogin from './modules/headerlogin';
 import Home from './pages/home';
@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'r
 import './App.css'
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleLogin = ({loggedIn}) => {
         setIsLoggedIn(loggedIn);

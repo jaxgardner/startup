@@ -21,7 +21,7 @@ function Saved() {
     const [activities, updateActivities] = useState([]);
 
     const removeActivity = ({id}) => {
-        fetch(`http://localhost:4000/remove-activity/${id}`, {
+        fetch(`/api/remove-activity/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })
@@ -39,7 +39,7 @@ function Saved() {
 
     // Get saved activities
     useEffect(() => {
-        const url = "http://localhost:4000/get-saved-activities";
+        const url = "/api/get-saved-activities";
       
         fetch(url, {
           method: 'GET',

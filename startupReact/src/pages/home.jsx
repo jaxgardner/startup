@@ -26,7 +26,7 @@ function HomeMain() {
 
     async function saveActivity() {
         try {
-            const response = await fetch(`http://localhost:4000/save-activity/${activity}`, {
+            const response = await fetch(`/api/save-activity/${activity}`, {
             method: 'POST',
             credentials: 'include'
           });

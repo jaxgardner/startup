@@ -8,7 +8,7 @@ const Header = ( { onLogout }) => {
 
   const logout = async () => {
     try {
-      await fetch(`http://localhost:4000/auth/logout`, {
+      await fetch(`/api/auth/logout`, {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -23,7 +23,7 @@ const Header = ( { onLogout }) => {
   useEffect(() => {
     async function getUserName() {
       try {
-        const response = await fetch(`http://localhost:4000/user/me`, {
+        const response = await fetch(`/api/user/me`, {
           method: 'GET',
           credentials: 'include'
         });

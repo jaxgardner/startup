@@ -7,21 +7,14 @@ const app = express();
 const bodyParser = require('body-parser');
 const config = require('./dbConfig.json');
 const webSocket = require('./webSocket');
-const cors = require('cors');
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.json());
 
-const corsOptions = {
-  origin: true, //included origin as true
-  credentials: true, //included credentials as true
-};
-
-app.use(cors(corsOptions))
 
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 function generateNumericId(length) {
   let result = '';
@@ -38,17 +31,10 @@ const client = new MongoClient(url);
 const collection = client.db('startup').collection('users');
 
 
-app.options('/auth/login', (req, res) => {
-  // Preflight request, respond with appropriate CORS headers
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.sendStatus(204);
-});
+
 
 // Endpoint to save an activity
-app.post('/save-activity/:activity', async (req, res) => {
+app.post('/api/save-activity/:activity', async (req, res) => {
   const activity = req.params.activity; 
   const userToken = req.cookies['token'];
   if (activity) {
@@ -68,7 +54,7 @@ app.post('/save-activity/:activity', async (req, res) => {
 });
 
 // Endpoint to retrieve saved activities
-app.get('/get-saved-activities', async (req, res) => {
+app.get('/api/get-saved-activities', async (req, res) => {
   const userToken = req.cookies['token'];
   const user = await collection.findOne({token: userToken});
   if(user){
@@ -79,7 +65,7 @@ app.get('/get-saved-activities', async (req, res) => {
 
 
 // Endpoint to remove a saved activity
-app.delete('/remove-activity/:activityId', async (req, res) => {
+app.delete('/api/remove-activity/:activityId', async (req, res) => {
   const activityId = req.params.activityId; 
   const userToken = req.cookies['token'];
   if (activityId) {
@@ -101,7 +87,7 @@ app.delete('/remove-activity/:activityId', async (req, res) => {
 // app.delete('user/:userId', (req, res) => {})
 
 // createAuthorization from the given credentials
-app.post('/auth/create', async (req, res) => {
+app.post('/api/auth/create', async (req, res) => {
   if (await getUser(req.body.username)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
@@ -114,12 +100,10 @@ app.post('/auth/create', async (req, res) => {
 });
 
 // loginAuthorization from the given credentials
-app.post('/auth/login', async (req, res) => {
+app.post('/api/auth/login', async (req, res) => {
   const user = await getUser(req.body.username);
   if (user) {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-      res.header('Access-Control-Allow-Credentials', 'true');      
+    if (await bcrypt.compare(req.body.password, user.password)) {    
       setAuthCookie(res, user.token);
       res.send({ id: user._id });
       return;
@@ -129,7 +113,7 @@ app.post('/auth/login', async (req, res) => {
 });
 
 // getMe for the currently authenticated user
-app.get('/user/me', async (req, res) => {
+app.get('/api/user/me', async (req, res) => {
   authToken = req.cookies['token'];
   const user = await collection.findOne({ token: authToken });
   if (user) {
@@ -139,7 +123,7 @@ app.get('/user/me', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-app.delete('/auth/logout', (_req, res) => {
+app.delete('/api/auth/logout', (_req, res) => {
   res.clearCookie('token');
   res.status(204).end();
 });
@@ -163,14 +147,14 @@ async function createUser(username, password) {
 
 function setAuthCookie(res, authToken) {
   res.cookie('token', authToken, {
-    secure: false,
-    httpOnly: false,
+    secure: true,
+    httpOnly: true,
     sameSite: 'Strict',
   });
 }
 
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: '../' });
+  res.sendFile('index.html', { root: 'public' });
 });
 
 const port = 4000;

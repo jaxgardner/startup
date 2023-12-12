@@ -23,7 +23,7 @@ function CreateAccount({ onLogin }) {
         event.preventDefault();
       
         try {
-          const response = await fetch('http://localhost:4000/auth/create', {
+          const response = await fetch('/api/auth/create', {
             method: 'POST',
             body: JSON.stringify({
               username: formData.username,

@@ -25,7 +25,9 @@ function Chat() {
     };
 
     useEffect(() => {
-        const newSocket = new WebSocket('ws://localhost:4000');
+        let port = window.location.port;
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        const newSocket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
         setSocket(newSocket);
     
         newSocket.addEventListener('open', () => {
