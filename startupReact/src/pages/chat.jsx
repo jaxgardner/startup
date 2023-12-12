@@ -60,11 +60,9 @@ function Chat() {
     }
 
     const receivedMessage = (text) => {
-        const newMessage = <ReceivedMessage message={text}/>
-
-        const updatedMessages = [...messages, newMessage];
-        setMessages(updatedMessages);
-    }
+        const newMessage = <ReceivedMessage message={text} />;
+        setMessages(prevMessages => [...prevMessages, newMessage]);
+    };
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {

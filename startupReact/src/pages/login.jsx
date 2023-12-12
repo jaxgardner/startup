@@ -54,7 +54,6 @@ function Login({ onLogin }) {
             const errorMessage = await response.text();
             throw new Error(`Request failed with status ${response.status}: ${errorMessage}`);
           }
-          console.log(response);
           // Handle successful response
           onLogin({ loggedIn: true});
           navigate('/');
