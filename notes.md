@@ -150,3 +150,81 @@ Const myObject = {
 	22: Reserved for SSH
 ### What will the following code using Promises output when executed?
 		A promise states that it will be completed eventually. Here is an example:
+
+
+### What do HTTP status codes in the 300, 400, 500 range indicate?
+Here's a brief overview of the HTTP status code classes:
+
+1xx (Informational): Request received, continuing process.
+2xx (Success): The request was successfully received, understood, and accepted.
+3xx (Redirection): Further action needs to be taken to complete the request.
+300 Multiple Choices
+301 Moved Permanently
+302 Found
+304 Not Modified
+4xx (Client Error): The request contains bad syntax or cannot be fulfilled by the server.
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+5xx (Server Error): The server failed to fulfill a valid request.
+500 Internal Server Error
+501 Not Implemented
+502 Bad Gateway
+503 Service Unavailable
+
+### What does the HTTP header content-type allows you to do?
+The Content-Type HTTP header is used to indicate the media type (or MIME type) of the resource sent in the HTTP message body
+
+### What do the following attributes of a cookie do?
+#### Domain
+	The Domain attribute specifies the domain for which the cookie is valid. The browser will only send the cookie back to the server if the current domain matches the domain specified in the cookie.
+##### Path
+	The Path attribute limits the scope of the cookie to a specific path on the domain. The cookie will only be sent to the server if the path in the request URL matches or is a subdirectory of the path specified in the cookie.
+#### SameSite
+	The SameSite attribute helps prevent cross-site request forgery attacks by restricting when the browser sends cookies with cross-site requests. It can have three values: "Strict," "Lax," or "None."
+#### HTTPOnly
+	The HTTPOnly attribute is a security feature that helps prevent client-side scripts from accessing the cookie through the document.cookie API. This reduces the risk of cross-site scripting (XSS) attacks.
+
+### Given the following MongoDB query
+
+{ cost: { $gt: 10 }, name: /fran.*/}
+select all of the matching documents.
+	This part of the query filters documents where the value of the "cost" field is greater than ($gt stands for "greater than") 10.
+	This part of the query filters documents where the value of the "name" field matches the regular expression /fran.*/. The regular expression /fran.*/ specifies that the "name" field should start with "fran" followed by zero or more characters (.* matches any character zero or more times).
+
+ ### How should you store user passwords in a database?
+ - Use hash functions
+ - Salt passwords
+ - Key stretching
+
+### What is the WebSocket protocol used for?
+The WebSocket protocol is a communication protocol that provides full-duplex communication channels over a single, long-lived connection.
+
+### What is JSX and how are the curly braces rendered?
+	In summary, JSX is a syntax extension that allows you to write HTML-like code in JavaScript, particularly in the context of React. Curly braces within JSX are used to embed JavaScript expressions, enabling dynamic content and logic in the markup. 
+
+ ### What are React Hooks used for?
+React Hooks are functions introduced in React 16.8 that allow developers to use state and lifecycle features in functional components. useState: Allows functional components to have local state. It takes an initial state as an argument and returns an array with two elements: the current state value and a function to update it.
+
+### What does useEffect do? 
+The useEffect hook in React is used to perform side effects in functional components. Side effects in this context refer to any code that needs to execute after the component renders, such as data fetching, subscriptions, manual DOM manipulations, and more. It is a replacement for lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components
+
+### What role does npm play in web development?
+npm (Node Package Manager) is a package manager for JavaScript, primarily used for managing and sharing packages (libraries, tools, and frameworks) for Node.js. However, its role extends beyond just Node.js, as it has become a crucial tool in web development ecosystems.
+
+### What does package.json do in a npm project?
+It serves several important purposes, providing metadata about the project, specifying project dependencies, and defining scripts for various tasks.
+
+### What does the fetch function do?
+The fetch function is a modern JavaScript API that provides an easy and flexible way to make HTTP requests.
+
+### What does node.js do?
+Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers to execute server-side JavaScript code. 
+
+### What does Vite do?
+Vite is a build tool and development server for modern web development projects. It is designed to optimize the development experience and improve the build performance for frontend applications, particularly those using frameworks like Vue.js and React. Vite stands for "Vite Is a Toolkit for Efficient Development."
+
+
+
+	
